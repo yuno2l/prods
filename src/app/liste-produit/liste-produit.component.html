@@ -1,0 +1,25 @@
+<br>
+<table class="table table-striped" *ngIf="produits;else vide">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Nom</th>
+        <th>Prix</th>
+        <th>Quantite</th>
+        <th><button (click)="afficher()">afficher</button></th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of produits">
+
+        <th>{{p.id}}</th>
+        <td>{{p.nom}}</td>
+        <td>{{p.prix}}</td>
+        <td>{{p.quantite}}</td>
+       <!--<td><img src="{{p.urlimg}}" width="200" alt=""></td>--> 
+       <td><img [src]=p.urlimg width="200" *ngIf="nb=='afficher'" alt=""></td>
+      </tr>
+    </tbody>
+  </table>
+  <ng-template #vide><h2>aucun produit existe</h2></ng-template>
